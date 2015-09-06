@@ -1,0 +1,14 @@
+- events.each do |event|
+	%tr{ id: "event_#{event.id}"}
+		%td.align-center
+			= event.name
+		%td.align-center
+			= event.short_description
+		%td.align-center
+			= event.category.name
+		%td.align-center
+			= event.event_date.strftime("%d/%m/%Y")
+		%td.actions
+			= link_to 'Edit', edit_admin_event_path(event.id), :class => 'edit'
+			&nbsp;
+			= link_to 'Delete', admin_event_path(event.id), class: 'delete', data: { confirm: "Are you sure?" }, method: :delete

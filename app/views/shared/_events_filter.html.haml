@@ -1,0 +1,15 @@
+%h2
+	= 'Categories'
+.categories_filter_block
+	- nested_set_options(Category){|i| [i.level,i.name] }.each do |cat|
+		= link_to root_path(category_id: cat[1]), { remote: true, class: params[:category_id].to_i == cat[1].to_i ? 'active' : '', style: "padding-left: #{cat[0][0] * 20}px;", :data => {id: cat[1]} } do
+			%i{class: "fa #{params[:category_id].to_i == cat[1].to_i ? 'fa-check-circle' : 'fa-check-circle-o'}"}
+			= cat[0][1]
+		%br
+= form_tag '', :method => :get, remote: true, class: 'filters_form' do
+	= hidden_field_tag :category_id
+	%h2
+		= 'Participant'
+	.participants_filter_block
+		= select_tag :user_id, options_from_collection_for_select(User.order('firstname, lastname'), :id, :fullname), {:prompt => "Select participant", class: "form-control", :onClick => "$(this.form).find('button').click();"}
+	= button_tag "filter", {style: 'display: none;'}

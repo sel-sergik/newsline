@@ -1,0 +1,31 @@
+.col-xs-9
+	.add_new_event
+		= link_to 'Add event', new_admin_event_path, class: 'btn btn-primary'
+	.events_block
+		- if @events.any?
+			.events_list
+				%table.table.table-hover
+					%colgroup
+						%col{style: "width: 25%;"}
+						%col{style: "width: 35%;"}
+						%col{style: "width: 15%;"}
+						%col{style: "width: 15%;"}
+						%col{style: "width: 10%;"}
+					%thead
+						%tr
+							%th
+								= 'Name'
+							%th
+								= 'Short description'
+							%th
+								= 'Category'
+							%th
+								= 'Event date'
+					%tbody
+						= render :partial => 'admin/shared/events_list', locals: {events: @events}
+			.pagination_block
+				= paginate @events, :window => 2
+		- else
+			Events not found
+.col-xs-3
+	= render :partial => 'shared/admin_right_menu'

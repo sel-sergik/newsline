@@ -1,0 +1,6 @@
+<% if params[:appended] %>
+	$('.events_list').append("<%= escape_javascript(render(partial: "shared/events_list", locals: {events: @events})) %>")
+<% else %>
+	$('.events_list').html("<%= escape_javascript(render(partial: "shared/events_list", locals: {events: @events})) %>")
+<% end %>
+$('.pagination_block').html("<%= escape_javascript(paginate(@events , window: 2, :remote => true, params: { appended: true, category_id: params[:category_id], user_id: params[:user_id] })) %>")

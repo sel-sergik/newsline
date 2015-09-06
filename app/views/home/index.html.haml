@@ -1,0 +1,8 @@
+.col-xs-3
+	= render :partial => 'shared/events_filter'
+.col-xs-9
+	%ul.list-group
+		.events_list
+			= render :partial => 'shared/events_list', locals: {events: @events}
+	.pagination_block
+		= paginate @events, :window => 2, :remote => true, params: { appended: true, category_id: params[:category_id], user_id: params[:user_id] }

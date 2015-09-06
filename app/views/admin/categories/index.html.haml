@@ -1,0 +1,37 @@
+.col-xs-9
+	.add_new_event
+		= link_to 'Add category', new_admin_category_path, class: 'btn btn-primary'
+	.events_block
+		- if @categories.any?
+			.categories_list
+				%table.table.table-hover
+					%colgroup
+						%col{style: "width: 25%;"}
+						%col{style: "width: 25%;"}
+						%col{style: "width: 15%;"}
+					%thead
+						%tr
+							%th
+								= 'Name'
+							%th
+								= 'Parent'
+					%tbody
+						- @categories.each do |category|
+							%tr{ id: "category_#{category.id}"}
+								%td.align-center
+									= category.name
+								%td.align-center
+									- if category.parent_id
+										= Category.find(category.parent_id).name
+									- else
+										= '-'
+								%td.actions
+									= link_to 'Edit', edit_admin_category_path(category.id), :class => 'edit'
+									&nbsp;
+									= link_to 'Delete', admin_category_path(category.id), class: 'delete', data: { confirm: "Are you sure?" }, method: :delete
+			.pagination_block
+				= paginate @categories, :window => 2
+		- else
+			Categories not found
+.col-xs-3
+	= render :partial => 'shared/admin_right_menu'

@@ -1,0 +1,94 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "jquery.datetimepicker";
+@import "font-awesome";
+
+.navbar-nav > li > span {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	line-height: 20px;
+}
+
+.nav > li > span {
+	position: relative;
+	display: block;
+	padding: 15px 15px;
+}
+
+.add_new_event {
+	display: block;
+	width: 150px;
+}
+
+.add_new_event > a{
+	width: 100%;
+}
+
+.events_block {
+	display: block;
+	margin-top: 20px;
+}
+
+.pagination > li > span {
+	z-index: 3;
+	color: #23527c;
+	background-color: #eeeeee;
+	border-color: #dddddd;
+}
+
+.event_block .event_name {
+	padding-bottom: 10px;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.event_block .event_body {
+	padding-bottom: 20px;
+}
+
+.event_block .event_information {
+	overflow: hidden;
+}
+
+.event_block .event_participants {
+	display: inline-block;
+	width: 600px;
+	float: left;
+}
+
+.event_block .event_date_inf {
+	display: inline-block;
+	width: 200px;
+	float: right;
+	text-align: right;
+}
+
+.category_block
+{
+	display: table-row;
+}
+
+.categories_filter_block {
+	margin-bottom: 20px;
+}
+
+.categories_filter_block a{
+	text-decoration: none;
+}
+
+.categories_filter_block a.active{
+	font-weight: bold;
+}

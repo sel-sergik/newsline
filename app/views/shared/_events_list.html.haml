@@ -1,0 +1,14 @@
+- if events.length > 0
+	- events.each do |event|
+		%li.list-group-item.event_block
+			.event_name
+				= link_to event.name, event_path(event)
+			.event_body
+				= event.short_description
+			.event_information
+				.event_participants
+					= event_subscribers_with_name(event, 10)
+				.event_date_inf
+					= event.event_date.strftime('%d/%m/%Y %H:%M')
+- else
+	Results not found

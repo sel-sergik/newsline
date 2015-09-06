@@ -1,0 +1,12 @@
+.event_block
+	.event_name
+		= @event.name
+	.event_body
+		= @event.description
+	.event_information
+		.event_participants
+			= "Participants: " + event_subscribers_with_name(@event)
+		.event_date_inf
+			= @event.event_date.strftime('%d/%m/%Y %H:%M')
+- if current_user
+	= link_to @event.users.exists?(current_user.id) ? 'unsubscribe from event' : 'sign up for event', add_event_subscriber_event_path(@event.id, user_id: current_user.id), class: 'btn btn-primary add_subscribe_link', remote: true
