@@ -3,9 +3,6 @@ Rails.application.routes.draw do
   devise_for :users
   root 'home#index'
   resources :home, only: :index do
-    collection do
-      get :angular_test 
-    end
   end
 
   resources :events, only: [:show] do

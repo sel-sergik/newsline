@@ -11,11 +11,9 @@ class ApplicationController < ActionController::Base
 			devise_parameter_sanitizer.for(:sign_up) << :lastname
 			devise_parameter_sanitizer.for(:account_update) << :firstname
 			devise_parameter_sanitizer.for(:account_update) << :lastname
-			devise_parameter_sanitizer.for(:account_update) << :avatar
-			devise_parameter_sanitizer.for(:account_update) << :avatar_cache
 		end
 
 		def user_params
-	    params.require(:user).permit(:email, :password, :avatar, :avatar_cache, :remove_avatar)
+	    params.require(:user).permit(:email, :password)
 	  end
 end
