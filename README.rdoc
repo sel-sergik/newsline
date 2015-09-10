@@ -1,13 +1,13 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is test project for NewsLine.
 
 = Deployment instructions
 
-rake db:create
-rake db:migrate
-rake db:seed
+*bundle install
+*rake db:create
+*rake db:migrate
+*rake db:seed
 
 = User information
 
