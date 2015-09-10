@@ -13,6 +13,8 @@ $(document).ready ()->
 		check_cat.addClass('fa-check-circle-o')
 		$(this).find('i').removeClass('fa-check-circle-o')
 		$(this).find('i').addClass('fa-check-circle')
+		$('.filters_form').find('button').click()
+		false
 
 	#add load indicator
 	$('a.next_page_link').on 'click', ()->
